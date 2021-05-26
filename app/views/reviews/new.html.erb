@@ -3,6 +3,7 @@
 <!-- simple form for so the user can give his input : his review -->
 
 <%= simple_form_for([@resto, @review]) do |f|%>
+  <%= f.error_notification %>
 <!-- sugar syntax of ruby method_name argument -->
 <!-- sugar syntax of ruby method_name(argumen) -->
   <%= f.input :content%>

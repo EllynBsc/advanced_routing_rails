@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.restaurant_id = @resto.id #hardest step of the lecture
     #review.restaurant = resto
     # 4. save the review
-    if @review.save!
+    if @review.save
     #save returns a boolean: returns true or false
     #5. redirect the user to the show page of the restaurant. In this show page, we're going to display all the reviews attached to this specific restaurant
       redirect_to restaurant_path(@resto) #http request
