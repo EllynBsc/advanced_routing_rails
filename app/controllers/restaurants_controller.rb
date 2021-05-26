@@ -1,5 +1,21 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :chef]
+
+  # GET /restaurants/:id/chef
+  def chef
+    #@restaurant = Restaurant.find(params[:id])
+    @chef = @restaurant.chef_name
+  end
+
+
+  # GET /restaurants/top
+  def top
+    # rating >= 5
+    @restos = Restaurant.where('stars >= 5')
+    #here we're filtering the restaurants instances with rating == 5
+    # @restos = Restaurant.where(stars: 5)
+  end
+
 
   # GET /restaurants
   def index
@@ -53,6 +69,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :stars)
+      params.require(:restaurant).permit(:name, :address, :stars, :chef_name)
     end
 end

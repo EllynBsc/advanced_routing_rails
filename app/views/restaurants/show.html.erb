@@ -15,5 +15,19 @@
   <%= @restaurant.stars %>
 </p>
 
+<p><%= @restaurant.chef_name %> </p>
+
+<p>Reviews of this resto</p>
+<%= link_to 'add a review', new_restaurant_review_path(@restaurant) %>
+<% @restaurant.reviews.each do |review| %>
+  <p>
+    <%= review.content %>
+    <%= link_to 'delete review', review_path(review), method: :delete, data: { confirm: 'are you sure buddy?'} %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+<p><%= link_to 'see more infos about the chef', chef_restaurant_path(@restaurant) %></p>
+
+

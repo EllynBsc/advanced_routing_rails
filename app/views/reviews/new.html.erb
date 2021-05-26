@@ -1,0 +1,10 @@
+<h1>create a review</h1>
+
+<!-- simple form for so the user can give his input : his review -->
+
+<%= simple_form_for([@resto, @review]) do |f|%>
+<!-- sugar syntax of ruby method_name argument -->
+<!-- sugar syntax of ruby method_name(argumen) -->
+  <%= f.input :content%>
+  <%= f.submit :create %>
+<% end %>
